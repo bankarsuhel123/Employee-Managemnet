@@ -1,0 +1,86 @@
+<h2 class="text">Update Data Form</h2>
+<p>{{empUpdateMsg}}</p>
+<form class="text" #updateData="ngForm" (ngSubmit)="updateEmpData(updateData.value)">
+    <div class="col-md-4">
+        <label for="Employee_Id" class="form-label">Employee Id</label>
+        <input type="text" ngModel="{{empData?.employeeId}}" class="form-control" name="employeeId">
+    </div>
+    <div class="col-md-4">
+        <label for="Employee_Name" class="form-label">Employee Name</label>
+        <input type="text" ngModel="{{empData?.employeeName}}" class="form-control" name="employeeName">
+    </div>
+    <div class="col-md-4">
+        <label for="Designation" class="form-label">Designation</label>
+        <select class="form-select" ngModel="{{empData?.designation}}" name="designation">
+            <option>Manager</option>
+            <option>Software Developer</option>
+            <option>Software Tester</option>
+            <option>Admin</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label for="Salary" class="form-label">Salary</label>
+        <input type="number" ngModel="{{empData?.salary}}" class="form-control" name="salary">
+    </div>
+    <div class="col-md-4">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" ngModel="{{empData?.email}}" class="form-control" name="email">
+    </div>
+    <div class="col-md-4">
+        <label for="Mobile" class="form-label">Mobile</label>
+        <input type="number" ngModel="{{empData?.mobile}}" class="form-control" name="mobile">
+    </div>
+
+    <div>
+        <label class="form-check-label" for="Gender">
+            Gender
+        </label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel="{{empData?.gender}}" type="radio" name="gender" value="Male" id="id1">
+        <label class="form-check-label" for="Male">
+            Male
+        </label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel="{{empData?.gender}}" type="radio" name="gender" value="Female" id="id1"
+            checked>
+        <label class="form-check-label" for="Female">
+            Female
+        </label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel="{{empData?.gender}}" type="radio" name="gender" value="Others" id="id1"
+            checked>
+        <label class="form-check-label" for="Others">
+            Others
+        </label>
+    </div>
+    <div>
+        <label class="form-check-label" for="Langugae_Known">
+            Langugae Known
+        </label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel="{{empData?.languageKnown}}" type="checkbox" value="option1"
+            name="languageKnown">
+        <label class="form-check-label" for="English">English</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel="{{empData?.languageKnown}}" type="checkbox" value="option2"
+            name="languageKnown">
+        <label class="form-check-label" for="Hindi">Hindi</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel="{{empData?.languageKnown}}" type="checkbox" value="option3"
+            name="languageKnown">
+        <label class="form-check-label" for="Marathi">Marathi</label>
+    </div>
+    <div class="col-md-4">
+        <label for="inputPassword4" class="form-label">Qualification</label>
+        <input type="text" class="form-control" ngModel="{{empData?.qualification}}" id="inputPassword4"
+            name="qualification">
+    </div>
+
+    <button class="btn btn-primary mt-3">Update Data</button>
+</form>

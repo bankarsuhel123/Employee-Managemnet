@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1>Employee Form</h1>
+    </div>
+</nav>
+<p>{{empDeleteMsg}}</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Employee Id</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Langugae Known</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let emp of empData">
+            <td>{{emp.employeeId}}</td>
+            <td>{{emp.employeeName}}</td>
+            <td>{{emp.designation}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.email}}</td>
+            <td>{{emp.mobile}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.languageKnown}}</td>
+            <td>{{emp.qualification}}</td>
+            <td>
+                <button class="btn btn-success" routerLink="/emp-update/{{emp.id}}">Edit</button>
+                <button class="btn btn-danger" (click)="deleteEmpData(emp.id)">Delete</button>
+            </td>
+
+        </tr>
+    </tbody>
+
+
+</table>

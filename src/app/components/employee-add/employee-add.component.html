@@ -1,0 +1,105 @@
+<h1>Employee Add Details</h1>
+<p>{{addDatamsg}}</p>
+<h2 style="text-transform: none;"><a routerLink="/emp-add">Employee Data</a></h2>
+<form class="text" #addData="ngForm" (ngSubmit)="addData.form.valid && addEmpData(addData.value)">
+    <div class="col-md-4">
+        <label for="Employee_Id" class="form-label">Employee Id</label>
+        <input type="text" class="form-control" name="employeeId" ngModel required #employeeId="ngModel">
+
+        <small class="error-msg" *ngIf="(employeeId.touched && !employeeId.valid)">
+            *This field is rquired
+        </small>
+    </div>
+    <div class="col-md-4">
+        <label for="Employee_Name" class="form-label">Employee Name</label>
+        <input type="text" ngModel class="form-control" name="employeeName" #employeeName="ngModel">
+        <small class="error-msg" *ngIf="(employeeName.touched && !employeeName.valid)">
+            *This field is rquired
+        </small>
+    </div>
+    <div class="col-md-4">
+        <label for="Designation" class="form-label">Designation</label>
+        <select class="form-select" ngModel name="designation">
+            <option>Manager</option>
+            <option>Software Developer</option>
+            <option>Software Tester</option>
+            <option>Admin</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label for="Salary" class="form-label">Salary</label>
+        <input type="number" ngModel class="form-control" name="salary" #salary="ngModel" required>
+        <small class="error-msg" *ngIf="(salary.touched || addData.valid) && salary.errors?.['required']">
+            *Salary should be in numeric
+        </small>
+    </div>
+    <div class="col-md-4">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" ngModel class="form-control" name="email" required #email="ngModel"
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <small class="error-msg" *ngIf="(email.touched || addData.valid) && email.errors?.['required']">
+            *Email Address is Required!
+        </small>
+        <small class="error-msg" *ngIf="(email.touched || addData.valid) && email.errors?.['pattern']">
+            *Enter a Valid Email Address!
+        </small>
+    </div>
+    <div class="col-md-4">
+        <label for="Mobile" class="form-label">Mobile</label>
+        <input type="number" ngModel class="form-control" name="mobile" #mobile="ngModel"
+            pattern="^((\\+91-?)|0)?[0-9]{10}$" required>
+        <small class="error-msg" *ngIf="(mobile.touched || addData.valid) && mobile.errors?.['required']">
+            *Mobile Number is Required!
+        </small>
+        <small class="error-msg" *ngIf="(mobile.touched || addData.valid) && mobile.errors?.['pattern']">
+            *Enter a Valid Mobile Number Starting with 6,7 & 9!
+        </small>
+    </div>
+
+    <div>
+        <label class="form-check-label" for="Gender">
+            Gender
+        </label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel type="radio" name="gender" value="Male" id="id1">
+        <label class="form-check-label" for="Male">
+            Male
+        </label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel type="radio" name="gender" value="Female" id="id1" checked>
+        <label class="form-check-label" for="Female">
+            Female
+        </label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel type="radio" name="gender" value="Others" id="id1" checked>
+        <label class="form-check-label" for="Others">
+            Others
+        </label>
+    </div>
+    <div>
+        <label class="form-check-label" for="Langugae_Known">
+            Langugae Known
+        </label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel type="checkbox" value="option1" name="languageKnown">
+        <label class="form-check-label" for="English">English</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel type="checkbox" value="option2" name="languageKnown">
+        <label class="form-check-label" for="Hindi">Hindi</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" ngModel type="checkbox" value="option3" name="languageKnown">
+        <label class="form-check-label" for="Marathi">Marathi</label>
+    </div>
+    <div class="col-md-4">
+        <label for="inputPassword4" class="form-label">Qualification</label>
+        <input type="text" class="form-control" ngModel id="inputPassword4" name="qualification">
+    </div>
+
+    <button class="btn btn-primary mt-3">Add Data</button>
+</form>
